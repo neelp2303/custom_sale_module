@@ -1,5 +1,5 @@
 {
-    "name": "BizzAppDev Sale Customization",
+    "name": "Custom Sale Module",
     "description": """Custom Sale Module by Neel Patel
     - Enhances Sale, Delivery, and Purchase Orders
     - Implements advanced partner search and tagging features
