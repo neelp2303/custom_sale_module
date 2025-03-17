@@ -1,0 +1,46 @@
+<odoo>
+    <record id="view_picking_form_inherit_tags" model="ir.ui.view">
+        <field name="name">stock.picking.form.inherit.tags</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="sale_order_tags" widget="many2many_tags" invisible="not sale_order_tags"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_picking_search_inherit_tags" model="ir.ui.view">
+        <field name="name">stock.picking.search.inherit.tags</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_internal_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group" position="inside">
+                <field name="sale_order_tags"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- <record id="view_picking_form_custom" model="ir.ui.view">
+        <field name="name">stock.picking.form.custom</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='move_ids_without_package']" position="after">
+                <field name="sale_order_tags" t-att-class="{'invisible': [('tag_ids', '=', False)]}"/>
+            </xpath>
+        </field>
+    </record> -->
+
+    <record id="view_picking_tree_custom" model="ir.ui.view">
+        <field name="name">stock.picking.tree.custom</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.vpicktree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='scheduled_date']" position="after">
+                <field name="tag_ids" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

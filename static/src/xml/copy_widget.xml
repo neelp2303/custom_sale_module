@@ -1,0 +1,10 @@
+<odoo>
+    <templates>
+        <t t-name="CopyWidget">
+            <div class="o_field_widget o_field_char">
+                <input type="text" t-att-value="widget.value" readonly="readonly" class="o_input"/>
+                <button type="button" class="btn btn-sm btn-secondary copy-button">Copy</button>
+            </div>
+        </t>
+    </templates>
+</odoo>

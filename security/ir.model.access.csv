@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sale_order,sale.order,custom_sale_module.model_sale_order,base.group_user,1,1,1,0
+access_stock_picking,stock.picking,custom_sale_module.model_stock_picking,base.group_user,1,1,1,0
+access_mrp_production,mrp.production,custom_sale_module.model_mrp_production,base.group_user,1,1,1,0
+access_purchase_order,purchase.order,custom_sale_module.model_purchase_order,base.group_user,1,1,1,0
+

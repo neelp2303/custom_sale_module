@@ -1,0 +1,37 @@
+<odoo>
+    <record id="view_order_form_inherit" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']" position="after">
+                <field name="tag_ids"/>
+
+
+            </xpath>
+        </field>
+    </record>
+    <record id="view_order_filter_inherit" model="ir.ui.view">
+        <field name="name">sale.order.filter.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+        <field name="arch" type="xml">
+            <!-- Remove the default My Quotations filter -->
+            <xpath expr="//filter[@name='my_sale_orders_filter']/filter[@name='my_quotation']" position="replace">
+                <filter name="sales_orders" string="Sales Orders" domain="[('state', 'in', ['sale', 'done'])]" help="Show only confirmed and completed sales orders."/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_sale_order_form_inherit" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit.copy</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="reference_code" widget="copy_widget"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
